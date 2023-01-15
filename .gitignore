@@ -6,3 +6,4 @@ public/*
 .env
 .DS_Store
 !database/session
+!.gitkeep
