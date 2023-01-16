@@ -10,7 +10,7 @@ export async function start(
         Update.MessageUpdate<Message>
     >,
 ) {
-    setVisitor(ctx.from.username as string);
+    setVisitor(ctx.from.username);
     await ctx.reply(getGreeting(), {
         ...getKeyboard('greet'),
     });
