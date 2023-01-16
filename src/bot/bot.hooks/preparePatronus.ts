@@ -45,6 +45,9 @@ export function preparePatronus(
                             await ctx.reply(
                                 'Патронус не найден, похоже ты сквиб или простой маггл, пошел нахуй!',
                             );
+                            await ctx.replyWithHTML(
+                                '<a href="https://t.me/kakul_podcast">Заглянуть на канал создателей</a>',
+                            );
                             return;
                         }
                         const patronus =
