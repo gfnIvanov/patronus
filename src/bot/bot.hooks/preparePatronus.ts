@@ -65,7 +65,7 @@ export function preparePatronus(
                                     nicknames[
                                         _.random(0, nicknames.length - 1, false)
                                     ].nickname;
-                                const text = `Ты ${persDoc?.firstname} "${nickname}" ${persDoc?.lastname}!\n\nТвой патронус: <b>${patronus.name}</b>\n${patronus.title}`;
+                                const text = `Ты ${persDoc?.firstname} "${nickname}" ${persDoc?.lastname}!\n\nТвой патронус: <b>${patronus.name}</b>\n${patronus.title}\n\n<a href="https://t.me/kakul_podcast">Заглянуть на канал создателей</a>`;
                                 await ctx.replyWithHTML(text);
                                 const filePath = `./public/${patronus._id}.jpg`;
                                 if (existsSync(filePath)) {
