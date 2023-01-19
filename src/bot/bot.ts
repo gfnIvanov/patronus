@@ -45,8 +45,10 @@ bot.action(['getPatronuses', 'getNicknames', 'getVisitors'], ctx => {
     dbFinder(ctx.match.input).exec(async (err, docs) => {
         if (err) throw new Error('Ошибка при получении данных');
         let result = '';
-        for (const item of docs) {
-            result += `${item.name ?? item.nickname ?? item.username}\n`;
+        for (let i = 0; i < docs.length; i++) {
+            result += `${i + 1} - ${
+                docs[i].name ?? docs[i].nickname ?? docs[i].username
+            }\n`;
         }
         await ctx.reply(result);
     });
