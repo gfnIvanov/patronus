@@ -43,7 +43,7 @@ export function preparePatronus(
                         if (err) throw new Error('Ошибка при получении данных');
                         if (patronuses.length === 0) {
                             await ctx.reply(
-                                'Патронус не найден, похоже ты сквиб или простой маггл, пошел нахуй!',
+                                'Патронус не найден, похоже ты сквиб или простой маггл, пошел нахуй!\nИли можешь пойти и попробовать еще раз, вдруг повезет)',
                             );
                             await ctx.replyWithHTML(
                                 '<a href="https://t.me/kakul_podcast">Заглянуть на канал создателей</a>',
