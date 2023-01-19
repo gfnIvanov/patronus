@@ -3,6 +3,7 @@ database/*
 database/session/*
 node_modules
 public/*
+dump
 .env
 .DS_Store
 !database/session
