@@ -41,9 +41,12 @@ export function preparePatronus(
                     { character: result.char },
                     async (err: Error, patronuses: TPatronuses[]) => {
                         if (err) throw new Error('Ошибка при получении данных');
-                        if (patronuses.length === 0) {
-                            await ctx.reply(
-                                'Патронус не найден, похоже ты сквиб или простой маггл, пошел нахуй!\nИли можешь пойти и попробовать еще раз, вдруг повезет)',
+                        if (
+                            patronuses.length === 0 ||
+                            _.random(0, 50, false) === 5
+                        ) {
+                            await ctx.replyWithHTML(
+                                'Патронус не найден, похоже ты сквиб или простой маггл, пошел нахуй!\nИли можешь пойти и попробовать еще раз <span class="tg-spoiler">/start</span>, вдруг повезет)',
                             );
                             await ctx.replyWithHTML(
                                 '<a href="https://t.me/kakul_podcast">Заглянуть на канал создателей</a>',
