@@ -33,7 +33,10 @@ bot.start(start);
 
 bot.command('/customize', customize);
 
-bot.action(['getQuestions'], ctx => ctx.scene.enter('GET_QUESTIONS'));
+bot.action(['getQuestions'], async ctx => {
+    await ctx.deleteMessage(ctx.message);
+    ctx.scene.enter('GET_QUESTIONS');
+});
 
 bot.action(['addPatronus'], ctx => ctx.scene.enter('ADD_PATRONUS'));
 

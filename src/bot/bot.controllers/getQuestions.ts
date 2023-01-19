@@ -75,11 +75,12 @@ const replyQuestions = async function (
             },
         );
     } else {
-        await ctx.reply('Обработка данных...');
-        setTimeout(() => {
+        const messageForDel = await ctx.reply('Обработка данных...🪄');
+        setTimeout(async () => {
+            await ctx.deleteMessage(messageForDel.message_id);
             preparePatronus(ctx, answers[id].list);
             clearData(id);
-        }, 1000);
+        }, 1500);
         ctx.scene.leave();
     }
 };
@@ -94,11 +95,12 @@ getQuestions.command(['/start', '/customize'], ctx => {
     return;
 });
 
-getQuestions.action(/^addAnswer/, ctx => {
+getQuestions.action(/^addAnswer/, async ctx => {
     const id = String(ctx.from?.id) as string;
     const callback_data = JSON.stringify(ctx.update.callback_query);
     answers[id].list.push(
         JSON.parse(callback_data).data.match(/(?<=addAnswer_).*/)[0],
     );
+    await ctx.deleteMessage(ctx.message);
     replyQuestions(ctx);
 });
