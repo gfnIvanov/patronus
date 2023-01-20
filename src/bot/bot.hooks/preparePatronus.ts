@@ -73,11 +73,20 @@ export function preparePatronus(
                                     ].nickname;
                                 const text = `Ты ${persDoc?.firstname} "${nickname}" ${persDoc?.lastname}!\n\nТвой патронус: <b>${patronus.name}</b>\n${patronus.title}`;
                                 await ctx.replyWithHTML(text);
-                                const filePath = `./public/${patronus._id}.jpg`;
-                                if (existsSync(filePath)) {
-                                    await ctx.replyWithPhoto({
-                                        source: readFileSync(filePath),
+                                if (
+                                    patronus.name ===
+                                    'Просто здравствуй, просто как дела'
+                                ) {
+                                    await ctx.replyWithVideo({
+                                        source: './public/videos/spidy.mp4',
                                     });
+                                } else {
+                                    const filePath = `./public/${patronus._id}.jpg`;
+                                    if (existsSync(filePath)) {
+                                        await ctx.replyWithPhoto({
+                                            source: readFileSync(filePath),
+                                        });
+                                    }
                                 }
                                 await ctx.replyWithHTML(
                                     '<a href="https://t.me/kakul_podcast">Заглянуть на канал создателей</a>',
