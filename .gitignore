@@ -1,10 +1,12 @@
 build
 database/*
 database/session/*
+public/videos/*
 node_modules
 public/*
 dump
 .env
 .DS_Store
 !database/session
+!public/videos
 !.gitkeep
