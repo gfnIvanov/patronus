@@ -8,7 +8,7 @@
     "dev": "npx nodemon",
     "build": "rimraf ./build && npx eslint ./src && npx ttsc",
     "start": "npm run build && node build/main",
-    "serv": "npm run build && pm2 start build/main",
+    "serv": "npm run build && pm2 start build/main.js",
     "serv:stop": "pm2 stop 0",
     "lint": "npx eslint ./src",
     "format": "npx eslint ./src --fix"
