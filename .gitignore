@@ -1,4 +1,5 @@
 build
+.readme/accesses.md
 database/*
 database/session/*
 public/videos/*
