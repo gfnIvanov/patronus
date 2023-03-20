@@ -25,6 +25,10 @@ $ nvm install 16
 ```
 - перенести файлы базы данных и содержимое папки public
 
-```
-scp -r /Users/igorivanov/dev/projects/patronus/public/ root@ip_adress:/root/patronus/public
-```
+```scp -r /Users/igorivanov/dev/projects/patronus/public/ root@ip_adress:/root/patronus/public```
+
+ВНИМАНИЕ: установку и удаление глобальных пакетов (например typescript) делаем через sudo
+
+Для исключения проблем с совместимостью желательно зафиксировать версии пакетов
+
+```npm shrinkwrap```
