@@ -1,7 +1,7 @@
 import { db } from '../database';
 import type { TVisitors } from '../database.types';
 
-export function setVisitor(username: string | undefined) {
+export function setVisitor(username: string | undefined, user_id: number) {
     if (!username) {
         db.visitors.insert({ username: 'Анонимный волшебник' });
         return;
@@ -9,7 +9,7 @@ export function setVisitor(username: string | undefined) {
     db.visitors.find({ username }, (err: Error, data: TVisitors[]) => {
         if (err) throw new Error('Ошибка при получении данных');
         if (data.length === 0) {
-            db.visitors.insert({ username });
+            db.visitors.insert({ username, user_id });
         }
     });
 }
